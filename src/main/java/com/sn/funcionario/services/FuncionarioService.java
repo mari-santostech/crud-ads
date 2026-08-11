@@ -25,5 +25,17 @@ public class  FuncionarioService {
         return funcionarioRepository.save(funcionarioModel);
     }
 
+    //deletar
+    public void deletar(Long id){
+        funcionarioRepository.deleteById(id);
+    }
+
+    //atualizar
+    public FuncionarioModel atualizar(Long id, FuncionarioModel funcionarioModel){
+        FuncionarioModel func = funcionarioRepository.findById(id).get();
+        func.setNome(funcionarioModel.getNome());
+        func.setCpf(funcionarioModel.getCpf());
+        return funcionarioRepository.save(func);
+    }
 
 }
